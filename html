@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoStyle · Moda Sustentável</title>
+  <!-- Font Awesome 6 (gratuito) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: #faf8f5;
+      color: #1e2b2c;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* cabeçalho */
+    header {
+      background: #1e2b2c;
+      color: #eae6df;
+      padding: 18px 0 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .header-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px 24px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      background: #86a69d;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #1e2b2c;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+    .logo-text span {
+      font-weight: 300;
+      color: #b6cfc5;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: #eae6df;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #b6cfc5;
+      color: #fff;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-actions i {
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #d6d0c7;
+    }
+    .header-actions i:hover {
+      color: #fff;
+    }
+    .bag-count {
+      background: #86a69d;
+      color: #1e2b2c;
+      border-radius: 30px;
+      padding: 0 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-left: -8px;
+    }
+
+    /* hero */
+    .hero {
+      background: #eae6df;
+      padding: 52px 0 48px;
+      margin-bottom: 40px;
+      border-radius: 0 0 40px 40px;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-text {
+      flex: 1 1 340px;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #1e2b2c;
+      margin-bottom: 18px;
+    }
+    .hero-text h1 i {
+      color: #4f7b6e;
+      font-weight: 300;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #2d3d3e;
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+    .btn-primary {
+      background: #1e2b2c;
+      border: none;
+      color: white;
+      padding: 14px 40px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #304544;
+      transform: scale(1.02);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+
+    .hero-image {
+      flex: 1 1 320px;
+      background: #d6d0c7;
+      border-radius: 60px 20px 60px 20px;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: #1e2b2c;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234f7b6e" width="80px" height="80px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6l5.25 3.15L17 12.23l-4-2.37V7z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 80px;
+      background-color: #d6d0c7;
+      padding: 40px;
+    }
+    .hero-image img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* seção produtos */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title i {
+      color: #4f7b6e;
+      font-size: 2rem;
+    }
+    .subtitle {
+      color: #4d5f5e;
+      margin-bottom: 32px;
+      font-size: 1.1rem;
+    }
+
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 36px 24px;
+      margin: 32px 0 48px;
+    }
+
+    .produto-card {
+      background: white;
+      border-radius: 28px 12px 28px 12px;
+      padding: 20px 16px 22px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      transition: 0.25s ease;
+      border: 1px solid #f0ede8;
+      display: flex;
+      flex-direction: column;
+    }
+    .produto-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px -8px rgba(30,43,44,0.12);
+      border-color: #cbd8d2;
+    }
+
+    .produto-img {
+      background: #eae6df;
+      border-radius: 40px 8px 40px 8px;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.6rem;
+      color: #1e2b2c;
+      margin-bottom: 16px;
+      background-image: repeating-linear-gradient(45deg, #d6d0c7 0px, #d6d0c7 4px, #eae6df 4px, #eae6df 8px);
+      background-size: 16px 16px;
+      position: relative;
+    }
+    .produto-img i {
+      background: white;
+      padding: 18px;
+      border-radius: 60px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .badge-eco {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #1e2b2c;
+      color: #eae6df;
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .produto-nome {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin: 6px 0 4px;
+    }
+    .produto-desc {
+      color: #4d5f5e;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .produto-preco {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #1e2b2c;
+      margin: 6px 0 10px;
+    }
+    .produto-preco small {
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #6d7e7a;
+      margin-left: 6px;
+      text-decoration: line-through;
+    }
+    .btn-comprar {
+      background: #f0ede8;
+      border: none;
+      padding: 12px 0;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1e2b2c;
+      margin-top: 8px;
+      transition: 0.2s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+    .btn-comprar i {
+      font-size: 1rem;
+    }
+    .btn-comprar:hover {
+      background: #1e2b2c;
+      color: white;
+    }
+
+    .qr-diferencial {
+      background: #f4f2ed;
+      border-radius: 48px 12px 48px 12px;
+      padding: 32px 28px;
+      margin: 40px 0 50px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .qr-diferencial .texto {
+      flex: 2 1 280px;
+    }
+    .qr-diferencial .texto h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .qr-diferencial .texto h3 i {
+      background: #1e2b2c;
+      color: #eae6df;
+      padding: 10px 14px;
+      border-radius: 60px;
+      font-size: 1.6rem;
+    }
+    .qr-diferencial .texto p {
+      font-size: 1.05rem;
+      color: #2d3d3e;
+      max-width: 480px;
+      margin-top: 8px;
+    }
+    .qr-badge {
+      background: white;
+      padding: 18px 30px;
+      border-radius: 120px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .qr-badge i {
+      font-size: 2.8rem;
+      color: #1e2b2c;
+    }
+    .qr-badge span {
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      background: #eae6df;
+      padding: 6px 18px;
+      border-radius: 40px;
+    }
+
+    /* missão, visão, valores */
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 32px 0 40px;
+    }
+    .info-card {
+      background: white;
+      padding: 24px 20px;
+      border-radius: 30px 8px 30px 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      border: 1px solid #f0ede8;
+    }
+    .info-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .info-card h4 i {
+      color: #4f7b6e;
+      width: 26px;
+    }
+    .info-card p {
+      color: #2d3d3e;
+      font-size: 0.98rem;
+    }
+
+    .slogan-footer {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      padding: 24px 0 8px;
+      border-top: 1px solid #dfdad2;
+      margin-top: 36px;
+      color: #1e2b2c;
+    }
+    .slogan-footer strong {
+      font-weight: 500;
+      background: #1e2b2c;
+      color: #eae6df;
+      padding: 4px 20px;
+      border-radius: 60px;
+      font-size: 1.3rem;
+    }
+
+    footer {
+      background: #1e2b2c;
+      color: #d6d0c7;
+      padding: 28px 0 24px;
+      margin-top: 48px;
+      border-radius: 40px 40px 0 0;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .footer-grid .copy {
+      font-size: 0.9rem;
+    }
+    .footer-grid .social i {
+      font-size: 1.6rem;
+      margin-left: 16px;
+      color: #b6cfc5;
+      transition: 0.2s;
+      cursor: default;
+    }
+    .footer-grid .social i:hover {
+      color: white;
+    }
+
+    @media (max-width: 700px) {
+      .header-grid { flex-direction: column; align-items: stretch; gap: 10px; }
+      .nav-links { justify-content: center; gap: 16px; }
+      .hero-text h1 { font-size: 2.4rem; }
+      .qr-diferencial { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-grid">
+      <div class="logo-area">
+        <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+        <div class="logo-text">Eco<span>Style</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="#">Início</a>
+        <a href="#">Coleção</a>
+        <a href="#">Sustentabilidade</a>
+        <a href="#">Sobre</a>
+      </div>
+      <div class="header-actions">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-user"></i>
+        <i class="fas fa-shopping-bag"></i>
+        <span class="bag-count">3</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Vista o futuro.<br><i>EcoStyle</i></h1>
+          <p>Moda contemporânea com propósito. Roupas urbanas, sustentáveis e transparentes. Cada peça conta uma história.</p>
+          <a href="#" class="btn-primary"><i class="fas fa-arrow-right" style="margin-right: 10px;"></i> Explorar coleção</a>
+        </div>
+        <div class="hero-image">
+          <!-- ícone decorativo -->
+          <i class="fas fa-tshirt" style="font-size: 4rem; color: #1e2b2c; background: #eae6df; padding: 20px; border-radius: 60px;"></i>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- produtos -->
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <div>
+          <div class="section-title"><i class="fas fa-circle-check"></i> Novidades sustentáveis</div>
+          <div class="subtitle">Peças com materiais ecológicos · algodão orgânico, Tencel, jeans reciclado</div>
+        </div>
+        <a href="#" style="color: #1e2b2c; font-weight: 500;">Ver todos <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i></a>
+      </div>
+
+      <div class="produtos-grid">
+        <!-- card 1 -->
+        <div class="produto-card">
+          <div class="produto-img"><i class="fas fa-tshirt"></i><span class="badge-eco">orgânico</span></div>
+          <div class="produto-nome">Camiseta Oversized</div>
+          <div class="produto-desc">Algodão orgânico · 100% sustentável</div>
+          <div class="produto-preco">R$ 129,90 <small>R$ 179,90</small></div>
+          <button class="btn-comprar"><i class="fas fa-bag-shopping"></i> Adicionar</button>
+        </div>
+        <!-- card 2 -->
+        <div class="produto-card">
+          <div class="produto-img"><i class="fas fa-hoodie"></i><span class="badge-eco">reciclado</span></div>
+          <div class="produto-nome">Moleton Urban</div>
+          <div class="produto-desc">Poliéster reciclado + Tencel</div>
+          <div class="produto-preco">R$ 239,90 <small>R$ 289,90</small></div>
+          <button class="btn-comprar"><i class="fas fa-bag-shopping"></i> Adicionar</button>
+        </div>
+        <!-- card 3 -->
+        <div class="produto-card">
+          <div class="produto-img"><i class="fas fa-person-booth"></i><span class="badge-eco">jeans</span></div>
+          <div class="produto-nome">Calça Cargo</div>
+          <div class="produto-desc">Jeans reciclado · água economizada</div>
+          <div class="produto-preco">R$ 199,90 <small>R$ 249,90</small></div>
+          <button class="btn-comprar"><i class="fas fa-bag-shopping"></i> Adicionar</button>
+        </div>
+        <!-- card 4 -->
+        <div class="produto-card">
+          <div class="produto-img"><i class="fas fa-vest"></i><span class="badge-eco">conjunto</span></div>
+          <div class="produto-nome">Conjunto Casual</div>
+          <div class="produto-desc">Lyocell (Tencel) · respirável</div>
+          <div class="produto-preco">R$ 289,90 <small>R$ 349,90</small></div>
+          <button class="btn-comprar"><i class="fas fa-bag-shopping"></i> Adicionar</button>
+        </div>
+      </div>
+
+      <!-- Diferencial QR Code -->
+      <div class="qr-diferencial">
+        <div class="texto">
+          <h3><i class="fas fa-qrcode"></i> QR Code exclusivo</h3>
+          <p>Escaneie e veja a origem dos materiais, economia de água, impacto ambiental e mais. Transparência em cada peça.</p>
+        </div>
+        <div class="qr-badge">
+          <i class="fas fa-qrcode"></i>
+          <span><i class="fas fa-water"></i> 72L economizados</span>
+          <span><i class="fas fa-recycle"></i> 100% rastreável</span>
+        </div>
+      </div>
+
+      <!-- missão, visão, valores -->
+      <div class="info-cards">
+        <div class="info-card">
+          <h4><i class="fas fa-bullseye"></i> Missão</h4>
+          <p>Produzir roupas estilosas, acessíveis e sustentáveis, reduzindo impactos e incentivando o consumo consciente.</p>
+        </div>
+        <div class="info-card">
+          <h4><i class="fas fa-eye"></i> Visão</h4>
+          <p>Ser referência em moda sustentável no Brasil, unindo inovação, tecnologia e responsabilidade ambiental.</p>
+        </div>
+        <div class="info-card">
+          <h4><i class="fas fa-heart"></i> Valores</h4>
+          <p>Sustentabilidade, transparência, inovação, qualidade, responsabilidade social e respeito ao meio ambiente.</p>
+        </div>
+      </div>
+
+      <!-- Slogan -->
+      <div class="slogan-footer">
+        “ <strong>Vista o futuro.</strong> Vista EcoStyle. ”
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="copy">
+        <i class="fas fa-leaf" style="margin-right: 8px; color: #86a69d;"></i> EcoStyle · 2026 · moda com propósito
+      </div>
+      <div class="social">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-tiktok"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-pinterest"></i>
+      </div>
+    </div>
+  </footer>
+
+  <!-- pequeno script para demonstrar interação (apenas efeito) -->
+  <script>
+    (function() {
+      const botoes = document.querySelectorAll('.btn-comprar');
+      botoes.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const original = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-check"></i> Adicionado';
+          this.style.background = '#4f7b6e';
+          this.style.color = 'white';
+          setTimeout(() => {
+            this.innerHTML = original;
+            this.style.background = '#f0ede8';
+            this.style.color = '#1e2b2c';
+          }, 1800);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
