@@ -1,884 +1,1126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoStyle · Moda Sustentável</title>
-  <!-- Font Awesome 6 (gratuito) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoStyle - Vista o futuro</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-floresta: #0D2C1D;
+            --verde-profundo: #071F14;
+            --off-white: #FAF8F5;
+            --bege-suave: #E8F0EB;
+            --verde-folha: #8BB396;
+            --verde-destaque: #A8D5B5;
+            --texto-claro: #FAF8F5;
+            --texto-escuro: #071F14;
+            --sombra: 0 4px 12px rgba(0,0,0,0.1);
+            --transicao: all 0.3s ease;
+        }
 
-    body {
-      background: #faf8f5;
-      color: #1e2b2c;
-      line-height: 1.5;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-      max-width: 1360px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--off-white);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* cabeçalho */
-    header {
-      background: #1e2b2c;
-      color: #eae6df;
-      padding: 18px 0 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+        /* ============ HEADER ============ */
+        header {
+            background-color: var(--verde-floresta);
+            color: var(--texto-claro);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--sombra);
+        }
 
-    .header-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px 24px;
-    }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--bege-suave);
+        }
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-    }
+        .logo span {
+            color: var(--verde-destaque);
+        }
 
-    .logo-icon {
-      background: #86a69d;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: #1e2b2c;
-    }
+        .menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
 
-    .logo-text {
-      font-weight: 600;
-      font-size: 1.8rem;
-      letter-spacing: -0.5px;
-    }
-    .logo-text span {
-      font-weight: 300;
-      color: #b6cfc5;
-    }
+        .menu a {
+            color: var(--bege-suave);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicao);
+        }
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      font-weight: 500;
-    }
-    .nav-links a {
-      color: #eae6df;
-      text-decoration: none;
-      font-size: 1rem;
-      letter-spacing: 0.3px;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-    .nav-links a:hover {
-      border-bottom-color: #b6cfc5;
-      color: #fff;
-    }
+        .menu a:hover {
+            color: var(--verde-destaque);
+        }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .header-actions i {
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: 0.2s;
-      color: #d6d0c7;
-    }
-    .header-actions i:hover {
-      color: #fff;
-    }
-    .bag-count {
-      background: #86a69d;
-      color: #1e2b2c;
-      border-radius: 30px;
-      padding: 0 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-left: -8px;
-    }
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
 
-    /* hero */
-    .hero {
-      background: #eae6df;
-      padding: 52px 0 48px;
-      margin-bottom: 40px;
-      border-radius: 0 0 40px 40px;
-    }
-    .hero-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
-    }
-    .hero-text {
-      flex: 1 1 340px;
-    }
-    .hero-text h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1.1;
-      color: #1e2b2c;
-      margin-bottom: 18px;
-    }
-    .hero-text h1 i {
-      color: #4f7b6e;
-      font-weight: 300;
-    }
-    .hero-text p {
-      font-size: 1.2rem;
-      color: #2d3d3e;
-      max-width: 480px;
-      margin-bottom: 28px;
-    }
-    .btn-primary {
-      background: #1e2b2c;
-      border: none;
-      color: white;
-      padding: 14px 40px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.25s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      display: inline-block;
-      text-decoration: none;
-    }
-    .btn-primary:hover {
-      background: #304544;
-      transform: scale(1.02);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-    }
+        .icon-btn {
+            background: none;
+            border: none;
+            color: var(--bege-suave);
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transicao);
+        }
 
-    .hero-image {
-      flex: 1 1 320px;
-      background: #d6d0c7;
-      border-radius: 60px 20px 60px 20px;
-      min-height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: #1e2b2c;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234f7b6e" width="80px" height="80px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6l5.25 3.15L17 12.23l-4-2.37V7z"/></svg>');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 80px;
-      background-color: #d6d0c7;
-      padding: 40px;
-    }
-    .hero-image img {
-      max-width: 100%;
-      display: block;
-    }
+        .icon-btn:hover {
+            color: var(--verde-destaque);
+        }
 
-    /* seção produtos */
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      letter-spacing: -0.3px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .section-title i {
-      color: #4f7b6e;
-      font-size: 2rem;
-    }
-    .subtitle {
-      color: #4d5f5e;
-      margin-bottom: 32px;
-      font-size: 1.1rem;
-    }
+        .cart-count {
+            background-color: var(--verde-destaque);
+            color: var(--verde-profundo);
+            border-radius: 50%;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-weight: 600;
+        }
 
-    .produtos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 36px 24px;
-      margin: 32px 0 48px;
-    }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: var(--bege-suave);
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            margin: 0 1rem;
+        }
 
-    .produto-card {
-      background: white;
-      border-radius: 28px 12px 28px 12px;
-      padding: 20px 16px 22px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
-      transition: 0.25s ease;
-      border: 1px solid #f0ede8;
-      display: flex;
-      flex-direction: column;
-    }
-    .produto-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px -8px rgba(30,43,44,0.12);
-      border-color: #cbd8d2;
-    }
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            margin-left: 0.5rem;
+            width: 200px;
+            color: var(--texto-escuro);
+        }
 
-    .produto-img {
-      background: #eae6df;
-      border-radius: 40px 8px 40px 8px;
-      height: 210px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.6rem;
-      color: #1e2b2c;
-      margin-bottom: 16px;
-      background-image: repeating-linear-gradient(45deg, #d6d0c7 0px, #d6d0c7 4px, #eae6df 4px, #eae6df 8px);
-      background-size: 16px 16px;
-      position: relative;
-    }
-    .produto-img i {
-      background: white;
-      padding: 18px;
-      border-radius: 60px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    }
-    .badge-eco {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: #1e2b2c;
-      color: #eae6df;
-      padding: 4px 16px;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
+        /* ============ PÁGINAS (SPA) ============ */
+        .page {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
 
-    .produto-nome {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin: 6px 0 4px;
-    }
-    .produto-desc {
-      color: #4d5f5e;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-    .produto-preco {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #1e2b2c;
-      margin: 6px 0 10px;
-    }
-    .produto-preco small {
-      font-weight: 400;
-      font-size: 0.85rem;
-      color: #6d7e7a;
-      margin-left: 6px;
-      text-decoration: line-through;
-    }
-    .btn-comprar {
-      background: #f0ede8;
-      border: none;
-      padding: 12px 0;
-      border-radius: 60px;
-      font-weight: 600;
-      color: #1e2b2c;
-      margin-top: 8px;
-      transition: 0.2s;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 0.95rem;
-      width: 100%;
-    }
-    .btn-comprar i {
-      font-size: 1rem;
-    }
-    .btn-comprar:hover {
-      background: #1e2b2c;
-      color: white;
-    }
+        .page.active {
+            display: block;
+        }
 
-    .qr-diferencial {
-      background: #f4f2ed;
-      border-radius: 48px 12px 48px 12px;
-      padding: 32px 28px;
-      margin: 40px 0 50px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .qr-diferencial .texto {
-      flex: 2 1 280px;
-    }
-    .qr-diferencial .texto h3 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .qr-diferencial .texto h3 i {
-      background: #1e2b2c;
-      color: #eae6df;
-      padding: 10px 14px;
-      border-radius: 60px;
-      font-size: 1.6rem;
-    }
-    .qr-diferencial .texto p {
-      font-size: 1.05rem;
-      color: #2d3d3e;
-      max-width: 480px;
-      margin-top: 8px;
-    }
-    .qr-badge {
-      background: white;
-      padding: 18px 30px;
-      border-radius: 120px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .qr-badge i {
-      font-size: 2.8rem;
-      color: #1e2b2c;
-    }
-    .qr-badge span {
-      font-size: 1rem;
-      letter-spacing: 0.3px;
-      background: #eae6df;
-      padding: 6px 18px;
-      border-radius: 40px;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    /* missão, visão, valores */
-    .info-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      margin: 32px 0 40px;
-    }
-    .info-card {
-      background: white;
-      padding: 24px 20px;
-      border-radius: 30px 8px 30px 8px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-      border: 1px solid #f0ede8;
-    }
-    .info-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .info-card h4 i {
-      color: #4f7b6e;
-      width: 26px;
-    }
-    .info-card p {
-      color: #2d3d3e;
-      font-size: 0.98rem;
-    }
+        /* ============ HOME ============ */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--verde-profundo), var(--verde-floresta));
+            color: var(--texto-claro);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .slogan-footer {
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: 300;
-      letter-spacing: 2px;
-      padding: 24px 0 8px;
-      border-top: 1px solid #dfdad2;
-      margin-top: 36px;
-      color: #1e2b2c;
-    }
-    .slogan-footer strong {
-      font-weight: 500;
-      background: #1e2b2c;
-      color: #eae6df;
-      padding: 4px 20px;
-      border-radius: 60px;
-      font-size: 1.3rem;
-    }
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--off-white);
+            transform: skewY(-3deg);
+        }
 
-    footer {
-      background: #1e2b2c;
-      color: #d6d0c7;
-      padding: 28px 0 24px;
-      margin-top: 48px;
-      border-radius: 40px 40px 0 0;
-    }
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .footer-grid .copy {
-      font-size: 0.9rem;
-    }
-    .footer-grid .social i {
-      font-size: 1.6rem;
-      margin-left: 16px;
-      color: #b6cfc5;
-      transition: 0.2s;
-      cursor: default;
-    }
-    .footer-grid .social i:hover {
-      color: white;
-    }
+        .hero-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
 
-    /* PÁGINAS INTERNAS (ocultas por padrão) */
-    .page {
-      display: none;
-      animation: fade 0.3s ease;
-    }
-    .page.active {
-      display: block;
-    }
+        .hero-banner p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--bege-suave);
+        }
 
-    @keyframes fade {
-      0% { opacity: 0.5; transform: translateY(8px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+        .btn-primario {
+            background-color: var(--verde-destaque);
+            color: var(--verde-profundo);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicao);
+            text-decoration: none;
+            display: inline-block;
+        }
 
-    /* página Sobre */
-    .sobre-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-      background: white;
-      padding: 40px 36px;
-      border-radius: 48px 12px 48px 12px;
-      margin: 20px 0 40px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.02);
-      border: 1px solid #f0ede8;
-    }
-    .sobre-texto {
-      flex: 2 1 300px;
-    }
-    .sobre-texto h2 {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
-    }
-    .sobre-texto p {
-      margin-bottom: 16px;
-      color: #2d3d3e;
-      font-size: 1.05rem;
-    }
-    .sobre-img {
-      flex: 1 1 240px;
-      background: #eae6df;
-      border-radius: 60px 12px 60px 12px;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 5rem;
-      color: #1e2b2c;
-    }
+        .btn-primario:hover {
+            background-color: var(--verde-folha);
+            transform: translateY(-2px);
+        }
 
-    /* página Sustentabilidade */
-    .sustentabilidade-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 28px;
-      margin: 30px 0 40px;
-    }
-    .sustentabilidade-card {
-      background: white;
-      padding: 28px 20px;
-      border-radius: 30px 8px 30px 8px;
-      border: 1px solid #f0ede8;
-      text-align: center;
-    }
-    .sustentabilidade-card i {
-      font-size: 2.8rem;
-      color: #4f7b6e;
-      margin-bottom: 14px;
-    }
-    .sustentabilidade-card h4 {
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-    .sustentabilidade-card p {
-      color: #2d3d3e;
-    }
+        .destaques {
+            padding: 3rem 2rem;
+            background-color: var(--off-white);
+        }
 
-    /* página Contato */
-    .contato-wrapper {
-      background: white;
-      padding: 40px 36px;
-      border-radius: 48px 12px 48px 12px;
-      margin: 20px 0 40px;
-      border: 1px solid #f0ede8;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-    .contato-info {
-      flex: 1 1 240px;
-    }
-    .contato-info h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-    .contato-info p {
-      margin-bottom: 16px;
-      color: #2d3d3e;
-    }
-    .contato-info i {
-      width: 28px;
-      color: #4f7b6e;
-    }
-    .contato-form {
-      flex: 2 1 280px;
-    }
-    .contato-form input, .contato-form textarea {
-      width: 100%;
-      padding: 14px 18px;
-      border-radius: 60px;
-      border: 1px solid #dfdad2;
-      margin-bottom: 16px;
-      font-size: 1rem;
-      background: #faf8f5;
-    }
-    .contato-form textarea {
-      border-radius: 28px;
-      min-height: 120px;
-    }
-    .contato-form button {
-      background: #1e2b2c;
-      color: white;
-      border: none;
-      padding: 14px 32px;
-      border-radius: 60px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .contato-form button:hover {
-      background: #304544;
-    }
+        .destaques h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--verde-floresta);
+        }
 
-    /* página Carrinho (simples) */
-    .carrinho-lista {
-      background: white;
-      padding: 30px 28px;
-      border-radius: 48px 12px 48px 12px;
-      border: 1px solid #f0ede8;
-      margin: 20px 0 40px;
-    }
-    .carrinho-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 16px 0;
-      border-bottom: 1px solid #eae6df;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .carrinho-item:last-child {
-      border-bottom: none;
-    }
-    .carrinho-total {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-top: 20px;
-      text-align: right;
-    }
-    .btn-finalizar {
-      background: #1e2b2c;
-      color: white;
-      border: none;
-      padding: 14px 48px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
-      margin-top: 12px;
-    }
-    .btn-finalizar:hover {
-      background: #304544;
-    }
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    @media (max-width: 700px) {
-      .header-grid { flex-direction: column; align-items: stretch; gap: 10px; }
-      .nav-links { justify-content: center; gap: 16px; }
-      .hero-text h1 { font-size: 2.4rem; }
-      .qr-diferencial { flex-direction: column; text-align: center; }
-    }
-  </style>
+        .card-produto {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicao);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-imagem {
+            height: 250px;
+            background-color: var(--bege-suave);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--verde-folha);
+            background-size: cover;
+            background-position: center;
+            transition: var(--transicao);
+        }
+
+        .card-info {
+            padding: 1rem;
+        }
+
+        .card-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--verde-floresta);
+        }
+
+        .card-preco {
+            font-weight: 600;
+            color: var(--verde-floresta);
+        }
+
+        .badge-sustentavel {
+            background-color: var(--verde-folha);
+            color: var(--verde-profundo);
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-weight: 600;
+        }
+
+        .proposito {
+            background-color: var(--bege-suave);
+            padding: 3rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .proposito-texto {
+            flex: 1 1 300px;
+            max-width: 500px;
+        }
+
+        .proposito-texto h2 {
+            color: var(--verde-floresta);
+            margin-bottom: 1rem;
+        }
+
+        .proposito-imagem {
+            flex: 1 1 300px;
+            background: linear-gradient(45deg, var(--verde-folha), var(--verde-destaque));
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--verde-profundo);
+        }
+
+        /* ============ LOJA / LISTAGEM ============ */
+        .filtros {
+            background-color: var(--bege-suave);
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid var(--verde-folha);
+        }
+
+        .filtros select, .filtros input {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--verde-folha);
+            background: white;
+            font-family: inherit;
+        }
+
+        /* ============ PÁGINA DE PRODUTO ============ */
+        .produto-detalhe {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .galeria {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .imagem-principal {
+            height: 400px;
+            background-color: var(--bege-suave);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .miniaturas {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .miniatura {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            background-color: var(--bege-suave);
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transicao);
+            background-size: cover;
+        }
+
+        .miniatura:hover, .miniatura.ativa {
+            border-color: var(--verde-folha);
+        }
+
+        .info-produto {
+            flex: 1 1 400px;
+            padding: 1rem;
+        }
+
+        .info-produto h1 {
+            color: var(--verde-floresta);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-produto .preco {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--verde-floresta);
+            margin: 1rem 0;
+        }
+
+        .seletores {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .seletores label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .seletores select {
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--verde-folha);
+        }
+
+        .btn-transparencia {
+            background: none;
+            border: 2px solid var(--verde-folha);
+            color: var(--verde-floresta);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 1rem 0;
+            transition: var(--transicao);
+            font-weight: 500;
+        }
+
+        .btn-transparencia:hover {
+            background-color: var(--verde-folha);
+            color: white;
+        }
+
+        /* Modal QR Code */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.ativo {
+            display: flex;
+        }
+
+        .modal-conteudo {
+            background: white;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-fechar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .metricas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metrica {
+            background: var(--bege-suave);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* ============ CARRINHO ============ */
+        .carrinho {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .item-carrinho {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: var(--sombra);
+        }
+
+        .item-carrinho img {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bege-suave);
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .impacto-carrinho {
+            background-color: var(--verde-folha);
+            color: var(--verde-profundo);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        .checkout {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+        }
+
+        .checkout input, .checkout select {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* ============ TRANSPARÊNCIA ============ */
+        .transparencia {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .codigo-input {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .codigo-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid var(--verde-folha);
+            border-radius: 8px;
+        }
+
+        /* ============ SOBRE ============ */
+        .sobre {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .fundadoras {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fundadora {
+            background: var(--bege-suave);
+            padding: 1rem;
+            border-radius: 10px;
+            width: 150px;
+        }
+
+        /* ============ RODAPÉ ============ */
+        footer {
+            background-color: var(--verde-profundo);
+            color: var(--bege-suave);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-banner h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container header-grid">
-      <div class="logo-area" onclick="navegar('inicio')">
-        <div class="logo-icon"><i class="fas fa-leaf"></i></div>
-        <div class="logo-text">Eco<span>Style</span></div>
-      </div>
-      <div class="nav-links">
-        <a onclick="navegar('inicio')">Início</a>
-        <a onclick="navegar('produtos')">Produtos</a>
-        <a onclick="navegar('sobre')">Sobre</a>
-        <a onclick="navegar('sustentabilidade')">Sustentabilidade</a>
-        <a onclick="navegar('contato')">Contato</a>
-      </div>
-      <div class="header-actions">
-        <i class="fas fa-search"></i>
-        <i class="fas fa-user"></i>
-        <i class="fas fa-shopping-bag" onclick="navegar('carrinho')"></i>
-        <span class="bag-count" id="carrinho-count">0</span>
-      </div>
+
+<header>
+    <div class="logo">Eco<span>Style</span></div>
+    <ul class="menu">
+        <li><a href="#" onclick="navegar('home')">Home</a></li>
+        <li><a href="#" onclick="navegar('loja')">Loja</a></li>
+        <li><a href="#" onclick="navegar('transparencia')">Transparência</a></li>
+        <li><a href="#" onclick="navegar('sobre')">Sobre</a></li>
+    </ul>
+    <div class="header-icons">
+        <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" placeholder="Buscar..." oninput="filtrarProdutos(this.value)">
+        </div>
+        <button class="icon-btn" onclick="navegar('carrinho')">🛒 <span class="cart-count" id="contador-carrinho">0</span></button>
+        <button class="icon-btn">👤</button>
     </div>
-  </header>
+</header>
 
-  <main>
-    <div class="container">
-      <!-- PÁGINA INÍCIO -->
-      <div id="page-inicio" class="page active">
-        <section class="hero">
-          <div class="hero-grid">
-            <div class="hero-text">
-              <h1>Vista o futuro.<br><i>EcoStyle</i></h1>
-              <p>Moda contemporânea com propósito. Roupas urbanas, sustentáveis e transparentes. Cada peça conta uma história.</p>
-              <a class="btn-primary" onclick="navegar('produtos')"><i class="fas fa-arrow-right" style="margin-right: 10px;"></i> Explorar coleção</a>
-            </div>
-            <div class="hero-image">
-              <i class="fas fa-tshirt" style="font-size: 4rem; color: #1e2b2c; background: #eae6df; padding: 20px; border-radius: 60px;"></i>
-            </div>
-          </div>
-        </section>
-
-        <!-- Diferencial QR Code -->
-        <div class="qr-diferencial">
-          <div class="texto">
-            <h3><i class="fas fa-qrcode"></i> QR Code exclusivo</h3>
-            <p>Escaneie e veja a origem dos materiais, economia de água, impacto ambiental e mais. Transparência em cada peça.</p>
-          </div>
-          <div class="qr-badge">
-            <i class="fas fa-qrcode"></i>
-            <span><i class="fas fa-water"></i> 72L economizados</span>
-            <span><i class="fas fa-recycle"></i> 100% rastreável</span>
-          </div>
-        </div>
-
-        <!-- missão, visão, valores -->
-        <div class="info-cards">
-          <div class="info-card">
-            <h4><i class="fas fa-bullseye"></i> Missão</h4>
-            <p>Produzir roupas estilosas, acessíveis e sustentáveis, reduzindo impactos e incentivando o consumo consciente.</p>
-          </div>
-          <div class="info-card">
-            <h4><i class="fas fa-eye"></i> Visão</h4>
-            <p>Ser referência em moda sustentável no Brasil, unindo inovação, tecnologia e responsabilidade ambiental.</p>
-          </div>
-          <div class="info-card">
-            <h4><i class="fas fa-heart"></i> Valores</h4>
-            <p>Sustentabilidade, transparência, inovação, qualidade, responsabilidade social e respeito ao meio ambiente.</p>
-          </div>
-        </div>
-
-        <div class="slogan-footer">
-          “ <strong>Vista o futuro.</strong> Vista EcoStyle. ”
-        </div>
-      </div>
-
-      <!-- PÁGINA PRODUTOS -->
-      <div id="page-produtos" class="page">
-        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-top: 20px;">
-          <div>
-            <div class="section-title"><i class="fas fa-circle-check"></i> Novidades sustentáveis</div>
-            <div class="subtitle">Peças com materiais ecológicos · algodão orgânico, Tencel, jeans reciclado</div>
-          </div>
-        </div>
-
-        <div class="produtos-grid" id="produtos-grid">
-          <!-- cards gerados via JS -->
-        </div>
-      </div>
-
-      <!-- PÁGINA SOBRE -->
-      <div id="page-sobre" class="page">
-        <div class="sobre-grid">
-          <div class="sobre-texto">
-            <h2>Quem somos</h2>
-            <p><strong>EcoStyle</strong> é uma indústria de moda sustentável criada para unir estilo, inovação e responsabilidade ambiental. Desenvolvemos roupas modernas para jovens que buscam se vestir bem sem abrir mão da preocupação com o planeta.</p>
-            <p>Nossa equipe: Wana Luísa, Mariana Souza, Sara Hellen, Rayane Cristina, Yasmim Gabrielly – unidas pelo propósito de transformar a moda.</p>
-            <p><i class="fas fa-leaf" style="color: #4f7b6e;"></i> <strong>Missão:</strong> reduzir impactos ambientais com matérias-primas sustentáveis e processos produtivos conscientes.</p>
-          </div>
-          <div class="sobre-img">
-            <i class="fas fa-users"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- PÁGINA SUSTENTABILIDADE -->
-      <div id="page-sustentabilidade" class="page">
-        <div class="section-title" style="margin-top: 20px;"><i class="fas fa-seedling"></i> Nossos pilares</div>
-        <div class="sustentabilidade-grid">
-          <div class="sustentabilidade-card">
-            <i class="fas fa-droplet"></i>
-            <h4>Economia de água</h4>
-            <p>Nossos processos economizam até 72 litros de água por peça, com técnicas de lavagem a seco e tingimento sustentável.</p>
-          </div>
-          <div class="sustentabilidade-card">
-            <i class="fas fa-recycle"></i>
-            <h4>Materiais reciclados</h4>
-            <p>Jeans reciclado, poliéster pós-consumo e Tencel (Lyocell) de fontes renováveis.</p>
-          </div>
-          <div class="sustentabilidade-card">
-            <i class="fas fa-sun"></i>
-            <h4>Energia limpa</h4>
-            <p>Nossas fábricas utilizam energia solar e eólica, reduzindo a pegada de carbono.</p>
-          </div>
-          <div class="sustentabilidade-card">
-            <i class="fas fa-tag"></i>
-            <h4>Transparência total</h4>
-            <p>Cada peça tem um QR Code com dados de origem, impacto ambiental e economia gerada.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- PÁGINA CONTATO -->
-      <div id="page-contato" class="page">
-        <div class="contato-wrapper">
-          <div class="contato-info">
-            <h3>Fale com a gente</h3>
-            <p><i class="fas fa-envelope"></i> contato@ecostyle.eco</p>
-            <p><i class="fas fa-phone"></i> (11) 98765-4321</p>
-            <p><i class="fas fa-map-pin"></i> São Paulo, Brasil</p>
-            <p><i class="fas fa-clock"></i> Seg–Sex, 9h–18h</p>
-            <div style="margin-top: 24px; font-size: 2rem; color: #4f7b6e;">
-              <i class="fab fa-instagram" style="margin-right: 12px;"></i>
-              <i class="fab fa-tiktok" style="margin-right: 12px;"></i>
-              <i class="fab fa-youtube"></i>
-            </div>
-          </div>
-          <div class="contato-form">
-            <input type="text" placeholder="Seu nome" />
-            <input type="email" placeholder="Seu e-mail" />
-            <textarea placeholder="Sua mensagem..."></textarea>
-            <button onclick="alert('Mensagem enviada! (simulação)')">Enviar <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PÁGINA CARRINHO -->
-      <div id="page-carrinho" class="page">
-        <div class="carrinho-lista">
-          <h2 style="margin-bottom: 16px;"><i class="fas fa-shopping-bag"></i> Seu carrinho</h2>
-          <div id="carrinho-itens">
-            <p style="color: #6d7e7a;">Seu carrinho está vazio.</p>
-          </div>
-          <div class="carrinho-total" id="carrinho-total">Total: R$ 0,00</div>
-          <button class="btn-finalizar" onclick="alert('Pedido finalizado (simulação)')">Finalizar compra</button>
-        </div>
-      </div>
+<!-- PÁGINA HOME -->
+<div class="page active" id="pagina-home">
+    <div class="hero-banner">
+        <h1>Vista o futuro.<br>Vista EcoStyle.</h1>
+        <p>Moda urbana sustentável com transparência total. Cada peça conta uma história de impacto positivo.</p>
+        <a href="#" class="btn-primario" onclick="navegar('loja')">Explorar Coleção</a>
     </div>
-  </main>
 
-  <footer>
-    <div class="container footer-grid">
-      <div class="copy">
-        <i class="fas fa-leaf" style="margin-right: 8px; color: #86a69d;"></i> EcoStyle · 2026 · moda com propósito
-      </div>
-      <div class="social">
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-tiktok"></i>
-        <i class="fab fa-youtube"></i>
-        <i class="fab fa-pinterest"></i>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // dados dos produtos
-    const produtos = [
-      { id: 1, nome: 'Camiseta Oversized', desc: 'Algodão orgânico · 100% sustentável', preco: 129.90, precoAntigo: 179.90, badge: 'orgânico', icon: 'fa-tshirt' },
-      { id: 2, nome: 'Moleton Urban', desc: 'Poliéster reciclado + Tencel', preco: 239.90, precoAntigo: 289.90, badge: 'reciclado', icon: 'fa-hoodie' },
-      { id: 3, nome: 'Calça Cargo', desc: 'Jeans reciclado · água economizada', preco: 199.90, precoAntigo: 249.90, badge: 'jeans', icon: 'fa-person-booth' },
-      { id: 4, nome: 'Conjunto Casual', desc: 'Lyocell (Tencel) · respirável', preco: 289.90, precoAntigo: 349.90, badge: 'conjunto', icon: 'fa-vest' }
-    ];
-
-    let carrinho = [];
-
-    // renderizar produtos
-    function renderizarProdutos() {
-      const grid = document.getElementById('produtos-grid');
-      if (!grid) return;
-      grid.innerHTML = produtos.map(p => `
-        <div class="produto-card">
-          <div class="produto-img"><i class="fas ${p.icon}"></i><span class="badge-eco">${p.badge}</span></div>
-          <div class="produto-nome">${p.nome}</div>
-          <div class="produto-desc">${p.desc}</div>
-          <div class="produto-preco">R$ ${p.preco.toFixed(2)} <small>R$ ${p.precoAntigo.toFixed(2)}</small></div>
-          <button class="btn-comprar" data-id="${p.id}"><i class="fas fa-bag-shopping"></i> Adicionar</button>
+    <div class="destaques">
+        <h2>Lançamentos em Destaque</h2>
+        <div class="produtos-grid" id="destaques-grid">
+            <!-- Preenchido via JS -->
         </div>
-      `).join('');
+    </div>
 
-      // eventos dos botões
-      document.querySelectorAll('.btn-comprar').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const id = parseInt(this.dataset.id);
-          adicionarAoCarrinho(id);
-        });
-      });
+    <div class="proposito">
+        <div class="proposito-texto">
+            <h2>Nosso Propósito</h2>
+            <p>Acreditamos que moda e sustentabilidade podem caminhar juntas. Cada peça EcoStyle é produzida com matérias-primas ecológicas e processos éticos, e você pode rastrear todo o impacto positivo através do QR Code exclusivo.</p>
+            <button class="btn-transparencia" onclick="navegar('transparencia')">Saiba mais sobre o QR Code</button>
+        </div>
+        <div class="proposito-imagem">🌱</div>
+    </div>
+</div>
+
+<!-- PÁGINA LOJA -->
+<div class="page" id="pagina-loja">
+    <div class="filtros">
+        <select id="filtro-categoria" onchange="aplicarFiltros()">
+            <option value="todos">Todas as Categorias</option>
+            <option value="camiseta">Camisetas Oversized</option>
+            <option value="moletom">Moletons</option>
+            <option value="calca">Calças Cargo</option>
+            <option value="jeans">Jeans Sustentáveis</option>
+        </select>
+        <select id="filtro-material" onchange="aplicarFiltros()">
+            <option value="todos">Todos os Materiais</option>
+            <option value="algodao">Algodão Orgânico</option>
+            <option value="tencel">Tencel (Lyocell)</option>
+            <option value="jeans-reciclado">Jeans Reciclado</option>
+            <option value="poliester-reciclado">Poliéster Reciclado</option>
+        </select>
+        <select id="filtro-tamanho" onchange="aplicarFiltros()">
+            <option value="todos">Todos os Tamanhos</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+        </select>
+        <select id="filtro-preco" onchange="aplicarFiltros()">
+            <option value="todos">Qualquer Preço</option>
+            <option value="0-100">Até R$100</option>
+            <option value="100-200">R$100 - R$200</option>
+            <option value="200-300">R$200 - R$300</option>
+            <option value="300+">Acima de R$300</option>
+        </select>
+    </div>
+    <div class="destaques">
+        <div class="produtos-grid" id="loja-grid">
+            <!-- Preenchido via JS -->
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA DETALHE DO PRODUTO (dinâmica) -->
+<div class="page" id="pagina-produto">
+    <div class="produto-detalhe" id="produto-detalhe-conteudo">
+        <!-- Preenchido via JS -->
+    </div>
+</div>
+
+<!-- PÁGINA TRANSPARÊNCIA -->
+<div class="page" id="pagina-transparencia">
+    <div class="transparencia">
+        <h1>Transparência QR Code</h1>
+        <p>Digite o código da sua peça (ex: ECO-12345) para ver o impacto ambiental completo.</p>
+        <div class="codigo-input">
+            <input type="text" id="codigo-transparencia" placeholder="Ex: ECO-12345">
+            <button class="btn-primario" onclick="verificarCodigo()">Rastrear</button>
+        </div>
+        <div id="resultado-transparencia"></div>
+        <hr style="margin:2rem 0; border-color:var(--verde-folha);">
+        <h3>Como funciona?</h3>
+        <p>Cada peça EcoStyle possui uma etiqueta com QR Code exclusivo. Ao escanear, você acessa informações detalhadas sobre a origem da matéria-prima, métricas de economia de água e energia, e o processo produtivo ético.</p>
+    </div>
+</div>
+
+<!-- PÁGINA SOBRE -->
+<div class="page" id="pagina-sobre">
+    <div class="sobre">
+        <h1>Sobre a EcoStyle</h1>
+        <p>Fundada por Wana Luísa, Mariana Souza, Sara Hellen, Rayane Cristina e Yasmim Gabrielly, a EcoStyle nasceu com a missão de revolucionar a moda casual urbana, unindo estilo, conforto e responsabilidade ambiental.</p>
+        <h3>Missão</h3>
+        <p>Oferecer moda sustentável e acessível, com total transparência sobre o impacto de cada peça.</p>
+        <h3>Visão</h3>
+        <p>Ser referência em moda consciente para a geração que se preocupa com o futuro do planeta.</p>
+        <h3>Valores</h3>
+        <p>Sustentabilidade, Transparência, Inovação, Ética e Estilo.</p>
+        <div class="fundadoras">
+            <div class="fundadora">🌿 Wana Luísa</div>
+            <div class="fundadora">🌿 Mariana Souza</div>
+            <div class="fundadora">🌿 Sara Hellen</div>
+            <div class="fundadora">🌿 Rayane Cristina</div>
+            <div class="fundadora">🌿 Yasmim Gabrielly</div>
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA CARRINHO -->
+<div class="page" id="pagina-carrinho">
+    <div class="carrinho">
+        <h1>Seu Carrinho</h1>
+        <div id="itens-carrinho">
+            <!-- Preenchido via JS -->
+        </div>
+        <div class="impacto-carrinho" id="impacto-carrinho">
+            <!-- Impacto calculado -->
+        </div>
+        <div class="checkout">
+            <h2>Finalizar Compra</h2>
+            <form id="form-checkout" onsubmit="finalizarCompra(event)">
+                <input type="text" placeholder="Nome completo" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="text" placeholder="Endereço" required>
+                <select required>
+                    <option value="">Opção de Frete</option>
+                    <option value="padrao">Frete Padrão (R$ 15,00)</option>
+                    <option value="verde">Frete Verde - bicicleta/elétrico (R$ 10,00)</option>
+                </select>
+                <select required>
+                    <option value="">Forma de Pagamento</option>
+                    <option value="pix">Pix</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="carteira">Carteira Digital</option>
+                </select>
+                <button type="submit" class="btn-primario" style="width:100%;">Concluir Pedido</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL QR CODE -->
+<div class="modal-overlay" id="modal-qr">
+    <div class="modal-conteudo">
+        <button class="modal-fechar" onclick="fecharModal()">&times;</button>
+        <h2 id="modal-titulo">Rastreabilidade do Produto</h2>
+        <div id="modal-corpo">
+            <!-- Preenchido via JS -->
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 EcoStyle - Vista o futuro. Vista EcoStyle. | Sustentabilidade em cada fio.</p>
+</footer>
+
+<script>
+// ============ DADOS DOS PRODUTOS ============
+const produtos = [
+    {
+        id: 1,
+        nome: 'Camiseta Oversized EcoStyle',
+        categoria: 'camiseta',
+        material: 'algodao',
+        preco: 89.90,
+        tamanhos: ['P', 'M', 'G', 'GG'],
+        cores: ['Verde Floresta', 'Bege', 'Branco'],
+        impacto: 'Economia de 2.400L de água',
+        selo: '💧 2.400L',
+        descricao: 'Modelagem ampla e urbana. Algodão orgânico 100% cultivado sem agrotóxicos.',
+        imagem: 'linear-gradient(135deg, #A8D5B5, #8BB396)', // placeholder
+        codigo: 'ECO-1001'
+    },
+    {
+        id: 2,
+        nome: 'Moletom Street Consciente',
+        categoria: 'moletom',
+        material: 'poliester-reciclado',
+        preco: 149.90,
+        tamanhos: ['P', 'M', 'G'],
+        cores: ['Preto', 'Cinza Mescla'],
+        impacto: '12 garrafas PET recicladas',
+        selo: '♻️ 12 PET',
+        descricao: 'Toque macio com interior flanelado. Feito com poliéster reciclado e algodão.',
+        imagem: 'linear-gradient(135deg, #0D2C1D, #1a4a2e)',
+        codigo: 'ECO-1002'
+    },
+    {
+        id: 3,
+        nome: 'Calça Cargo Sustentável',
+        categoria: 'calca',
+        material: 'tencel',
+        preco: 199.90,
+        tamanhos: ['P', 'M', 'G', 'GG'],
+        cores: ['Caqui', 'Verde Militar'],
+        impacto: 'Processo de circuito fechado (99,5% reaproveitamento)',
+        selo: '🔄 99,5%',
+        descricao: 'Modelagem utilitária com bolsos laterais. Tencel (Lyocell) de origem sustentável.',
+        imagem: 'linear-gradient(135deg, #D2B48C, #A0522D)',
+        codigo: 'ECO-1003'
+    },
+    {
+        id: 4,
+        nome: 'Jeans Sustentável EcoStyle',
+        categoria: 'jeans',
+        material: 'jeans-reciclado',
+        preco: 179.90,
+        tamanhos: ['P', 'M', 'G'],
+        cores: ['Azul Médio', 'Azul Escuro'],
+        impacto: '-80% de água na produção',
+        selo: '💧 -80%',
+        descricao: 'Corte contemporâneo. Jeans reciclado com lavagem ecológica sem química nociva.',
+        imagem: 'linear-gradient(135deg, #4682B4, #2F4F4F)',
+        codigo: 'ECO-1004'
     }
+];
 
-    // adicionar ao carrinho
-    function adicionarAoCarrinho(id) {
-      const produto = produtos.find(p => p.id === id);
-      if (!produto) return;
-      const existente = carrinho.find(item => item.id === id);
-      if (existente) {
-        existente.quantidade += 1;
-      } else {
-        carrinho.push({ ...produto, quantidade: 1 });
-      }
-      atualizarCarrinho();
-      // feedback visual
-      const botoes = document.querySelectorAll('.btn-comprar');
-      botoes.forEach(btn => {
-        if (parseInt(btn.dataset.id) === id) {
-          const original = btn.innerHTML;
-          btn.innerHTML = '<i class="fas fa-check"></i> Adicionado';
-          btn.style.background = '#4f7b6e';
-          btn.style.color = 'white';
-          setTimeout(() => {
-            btn.innerHTML = original;
-            btn.style.background = '#f0ede8';
-            btn.style.color = '#1e2b2c';
-          }, 1600);
+// ============ ESTADO ============
+let carrinho = [];
+let paginaAtual = 'home';
+let produtoSelecionado = null;
+
+// ============ NAVEGAÇÃO ============
+function navegar(pagina) {
+    // Esconde todas as páginas
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // Mostra a página solicitada
+    const paginaEl = document.getElementById('pagina-' + pagina);
+    if (paginaEl) {
+        paginaEl.classList.add('active');
+        paginaAtual = pagina;
+        // Ações específicas
+        if (pagina === 'loja') {
+            renderizarLoja();
+        } else if (pagina === 'home') {
+            renderizarDestaques();
+        } else if (pagina === 'carrinho') {
+            renderizarCarrinho();
         }
-      });
+        window.scrollTo(0, 0);
     }
+}
 
-    // atualizar carrinho (contagem e página)
-    function atualizarCarrinho() {
-      const count = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
-     
+// ============ RENDERIZAÇÃO HOME ============
+function renderizarDestaques() {
+    const grid = document.getElementById('destaques-grid');
+    grid.innerHTML = '';
+    // Mostra 3 produtos aleatórios ou os 4 primeiros
+    produtos.slice(0, 4).forEach(prod => {
+        grid.appendChild(criarCardProduto(prod));
+    });
+}
+
+function criarCardProduto(prod) {
+    const card = document.createElement('div');
+    card.className = 'card-produto';
+    card.onclick = () => abrirProduto(prod.id);
+    card.innerHTML = `
+        <div class="card-imagem" style="background-image: ${prod.imagem};"></div>
+        <span class="badge-sustentavel">${prod.selo}</span>
+        <div class="card-info">
+            <h3>${prod.nome}</h3>
+            <p class="card-preco">R$ ${prod.preco.toFixed(2)}</p>
+        </div>
+    `;
+    return card;
+}
+
+// ============ LOJA / FILTROS ============
+function renderizarLoja() {
+    aplicarFiltros();
+}
+
+function aplicarFiltros() {
+    const filtroCategoria = document.getElementById('filtro-categoria').value;
+    const filtroMaterial = document.getElementById('filtro-material').value;
+    const filtroTamanho = document.getElementById('filtro-tamanho').value;
+    const filtroPreco = document.getElementById('filtro-preco').value;
+    const termoBusca = document.querySelector('.search-bar input').value.toLowerCase();
+
+    const produtosFiltrados = produtos.filter(prod => {
+        // Categoria
+        if (filtroCategoria !== 'todos' && prod.categoria !== filtroCategoria) return false;
+        // Material
+        if (filtroMaterial !== 'todos' && prod.material !== filtroMaterial) return false;
+        // Tamanho (verifica se o produto tem o tamanho selecionado)
+        if (filtroTamanho !== 'todos' && !prod.tamanhos.includes(filtroTamanho)) return false;
+        // Preço
+        if (filtroPreco !== 'todos') {
+            const [min, max] = filtroPreco.split('-').map(Number);
+            if (filtroPreco === '300+') {
+                if (prod.preco < 300) return false;
+            } else {
+                if (prod.preco < min || prod.preco > max) return false;
+            }
+        }
+        // Busca
+        if (termoBusca && !prod.nome.toLowerCase().includes(termoBusca)) return false;
+        return true;
+    });
+
+    const grid = document.getElementById('loja-grid');
+    grid.innerHTML = '';
+    if (produtosFiltrados.length === 0) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;">Nenhum produto encontrado.</p>';
+        return;
+    }
+    produtosFiltrados.forEach(prod => {
+        grid.appendChild(criarCardProduto(prod));
+    });
+}
+
+function filtrarProdutos(termo) {
+    if (paginaAtual === 'loja') {
+        aplicarFiltros();
+    }
+}
+
+// ============ PÁGINA DE PRODUTO ============
+function abrirProduto(id) {
+    const prod = produtos.find(p => p.id === id);
+    if (!prod) return;
+    produtoSelecionado = prod;
+    navegar('produto');
+    const container = document.getElementById('produto-detalhe-conteudo');
+    container.innerHTML = `
+        <div class="galeria">
+            <div class="imagem-principal" style="background-image: ${prod.imagem};"></div>
+            <div class="miniaturas">
+                <div class="miniatura ativa" style="background-image: ${prod.imagem};" onclick="trocarImagem(this)"></div>
+                <div class="miniatura" style="background-image: linear-gradient(45deg, #ccc, #999);" onclick="trocarImagem(this)"></div>
+                <div class="miniatura" style="background-image: linear-gradient(45deg, #ddd, #bbb);" onclick="trocarImagem(this)"></div>
+            </div>
+        </div>
+        <div class="info-produto">
+            <h1>${prod.nome}</h1>
+            <p>${prod.descricao}</p>
+            <p class="preco">R$ ${prod.preco.toFixed(2)}</p>
+            <div class="seletores">
+                <div>
+                    <label>Tamanho</label>
+                    <select id="tamanho-selecionado">
+                        ${prod.tamanhos.map(t => `<option>${t}</option>`).join('')}
+                    </select>
+                </div>
+                <div>
+                    <label>Cor</label>
+                    <select id="cor-selecionada">
+                        ${prod.cores.map(c => `<option>${c}</option>`).join('')}
+                    </select>
+                </div>
+            </div>
+            <button class="btn-primario" onclick="adicionarAoCarrinho(${prod.id})">Adicionar ao Carrinho</button>
+            <button class="btn-transparencia" onclick="abrirModalQR(${prod.id})">🔍 Rastrear Impacto Deste Produto</button>
+            <hr style="margin:1.5rem 0;">
+            <h3>Avaliações dos Clientes</h3>
+            <p>⭐⭐⭐⭐⭐ "A qualidade é incrível e saber o impacto positivo faz toda diferença!" - Ana J.</p>
+            <p>⭐⭐⭐⭐ "Amei o caimento e o tecido. Super confortável." - Carlos M.</p>
+        </div>
+    `;
+}
+
+function trocarImagem(el) {
+    const principal = document.querySelector('.imagem-principal');
+    principal.style.backgroundImage = el.style.backgroundImage;
+    document.querySelectorAll('.miniatura').forEach(m => m.classList.remove('ativa'));
+    el.classList.add('ativa');
+}
+
+// ============ MODAL QR CODE ============
+function abrirModalQR(prodId) {
+    const prod = produtos.find(p => p.id === prodId);
+    if (!prod) return;
+    const modal = document.getElementById('modal-qr');
+    document.getElementById('modal-titulo').textContent = `Rastreabilidade - ${prod.nome}`;
+    document.getElementById('modal-corpo').innerHTML = `
+        <p><strong>Código da Peça:</strong> ${prod.codigo}</p>
+        <div class="metricas">
+            <div class="metrica"><strong>💧 Água economizada</strong><br>${prod.impacto}</div>
+            <div class="metrica"><strong>🌱 Origem</strong><br>${prod.material === 'algodao' ? 'Algodão orgânico certificado' : prod.material === 'tencel' ? 'Tencel de florestas manejadas' : prod.material === 'jeans-reciclado' ? 'Jeans reciclado pós-consumo' : 'Garrafas PET recicladas'}</div>
+            <div class="metrica"><strong>⚡ Energia</strong><br>Economia de 35% vs. produção convencional</div>
+            <div class="metrica"><strong>🤝 Ética</strong><br>Produção com certificação de trabalho justo</div>
+        </div>
+        <p>Este produto foi fabricado em unidades parceiras que seguem rigorosos padrões ambientais e sociais.</p>
+    `;
+    modal.classList.add('ativo');
+}
+
+function fecharModal() {
+    document.getElementById('modal-qr').classList.remove('ativo');
+}
+
+// Fechar modal clicando fora
+document.getElementById('modal-qr').addEventListener('click', function(e) {
+    if (e.target === this) fecharModal();
+});
+
+// ============ CARRINHO ============
+function adicionarAoCarrinho(prodId) {
+    const prod = produtos.find(p => p.id === prodId);
+    if (!prod) return;
+    const itemExistente = carrinho.find(item => item.id === prodId);
+    if (itemExistente) {
+        itemExistente.quantidade++;
+    } else {
+        carrinho.push({
+            id: prod.id,
+            nome: prod.nome,
+            preco: prod.preco,
+            imagem: prod.imagem,
+            impacto: prod.impacto,
+            selo: prod.selo,
+            quantidade: 1
+        });
+    }
+    atualizarContadorCarrinho();
+    alert('Produto adicionado ao carrinho!');
+}
+
+function atualizarContadorCarrinho() {
+    const total = carrinho.reduce((sum, item) => sum + item.quantidade, 0);
+    document.getElementById('contador-carrinho').textContent = total;
+}
+
+function renderizarCarrinho() {
+    const container = document.getElementById('itens-carrinho');
+    container.innerHTML = '';
+    if (carrinho.length === 0) {
+        container.innerHTML = '<p>Seu carrinho está vazio.</p>';
+        document.getElementById('impacto-carrinho').innerHTML = '';
+        return;
+    }
+    carrinho.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item-carrinho';
+        div.innerHTML = `
+            <div style="width:80px;height:80px;border-radius:8px;background-image:${item.imagem};"></div>
+            <div style="flex:1;">
+                <strong>${item.nome}</strong>
+                <p>Quantidade: ${item.quantidade}</p>
+                <p>Preço unitário: R$ ${item.preco.toFixed(2)}</p>
+            </div>
+            <button class="btn-transparencia" onclick="removerDoCarrinho(${item.id})">Remover</button>
+        `;
+        container.appendChild(div);
+    });
+
+    // Calcula impacto total (simplificado)
+    let impactoMsg = '';
+    let aguaTotal = 0;
+    let petTotal = 0;
+    carrinho.forEach(item => {
+        if (item.impacto.includes('água')) {
+            aguaTotal += 2400 * item.quantidade;
+        } else if (item.impacto.includes('PET')) {
+            petTotal += 12 * item.quantidade;
+        }
+    });
+    impactoMsg = `🌍 Com este carrinho, você está economizando:`;
+    if (aguaTotal > 0) impactoMsg += `<br>💧 ${aguaTotal.toLocaleString()} litros de água`;
+    if (petTotal > 0) impactoMsg += `<br>♻️ ${petTotal} garrafas PET recicladas`;
+    impactoMsg += '<br>Obrigado por escolher um futuro mais sustentável!';
+    document.getElementById('impacto-carrinho').innerHTML = impactoMsg;
+}
+
+function removerDoCarrinho(prodId) {
+    carrinho = carrinho.filter(item => item.id !== prodId);
+    atualizarContadorCarrinho();
+    renderizarCarrinho();
+}
+
+function finalizarCompra(event) {
+    event.preventDefault();
+    alert('Pedido realizado com sucesso! Obrigado por escolher EcoStyle. 🌿');
+    carrinho = [];
+    atualizarContadorCarrinho();
+    navegar('home');
+}
+
+// ============ TRANSPARÊNCIA (página separada) ============
+function verificarCodigo() {
+    const codigo = document.getElementById('codigo-transparencia').value.trim();
+    const resultado = document.getElementById('resultado-transparencia');
+    if (!codigo) {
+        resultado.innerHTML = '<p>Por favor, digite um código.</p>';
+        return;
+    }
+    // Simula busca pelo código
+    const prod = produtos.find(p => p.codigo === codigo);
+    if (prod) {
+        resultado.innerHTML = `
+            <div class="modal-conteudo" style="position:static;box-shadow:none;border:2px solid var(--verde-folha);">
+                <h3>${prod.nome}</h3>
+                <p><strong>Impacto:</strong> ${prod.impacto}</p>
+                <p><strong>Material:</strong> ${prod.material}</p>
+                <p><strong>Processo:</strong> Produção ética com certificação ambiental.</p>
+            </div>
+        `;
+    } else {
+        resultado.innerHTML = '<p>Código não encontrado. Tente novamente.</p>';
+    }
+}
+
+// ============ INICIALIZAÇÃO ============
+document.addEventListener('DOMContentLoaded', () => {
+    renderizarDestaques();
+    renderizarLoja();
+    atualizarContadorCarrinho();
+});
+</script>
+
+</body>
+</html>
